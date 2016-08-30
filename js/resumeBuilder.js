@@ -18,7 +18,7 @@ var bio = {
     github: "wirtzb3",
     location: "Seattle"
   },
-    picture: "images/fry.jpg",
+    biopic: "images/fry.jpg",
     welcomeMessage: "Hello world",
     skills: ["kids ", "HTML/CSS ", "fitness"]
 }
@@ -45,3 +45,24 @@ education["city"] = "Seattle, WA, US";
 
 $("#main").append(work["currentJob"]);
 $("#main").append(education.name);
+
+var projects = {
+  projects:["Portfolio", "Animal Trading Cards"]
+}
+
+var education = {
+  "schools": [
+  {
+    "name": "Udacity",
+    "city": "Online",
+    "degree": "Web Development",
+    "major": "Front-End Web Developer"
+  },
+  {
+    "name": "University of Washington",
+    "city": "Seattle",
+    "degree": "BS",
+    "major": "Molecular, Cellular, and Developmental Biology"
+  }
+  ]
+}
