@@ -1,14 +1,6 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-var formattedName = HTMLheaderName.replace("%data%", "Brittany Wirtz");
-
-$("#header").prepend(formattedName);
-
-var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
-
-$("#header").append(formattedRole);
-
 var bio = {
   name: "Brittany Wirtz",
   role: "nanny",
@@ -20,21 +12,36 @@ var bio = {
   },
     biopic: "images/fry.jpg",
     welcomeMessage: "Hello world",
-    skills: ["kids ", "HTML/CSS ", "fitness"]
+    skills: ["kids ", "HTML/CSS ", "fitness", "petting puppies"]
 }
 
-$("#main").append(bio.name + ' ');
-$("#main").append(bio.role + ' ');
+var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
+
+$("#header").prepend(formattedRole);
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+
+$("#header").prepend(formattedName);
 $("#main").append(bio.contacts.mobile + ' ');
 $("#main").append(bio.contacts.email + ' ');
 $("#main").append(bio.contacts.github + ' ');
 $("#main").append(bio.contacts.location + ' ');
 $("#main").append(bio.picture);
 $("#main").append(bio.welcomeMessage + ' ');
-$("#main").append(bio.skills);
 
-$("#main").append(work["currentJob"]);
-$("#main").append(education.name);
+
+if (bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+
+  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+  $("#skills").append(formattedSkill);
+}
 
 var work = {
   "jobs": [
@@ -64,7 +71,7 @@ var work = {
     "title": "Athletic Assistant",
     "location": "Marysville, WA",
     "dates": "April 2005 - March 2012",
-    "description": "Basketball/community events extraordinnaire"
+    "description": "Basketball/community events extraordinaire"
   },
   {
     "employer": "Marysville City Clerk Office",
@@ -75,6 +82,24 @@ var work = {
   },
   ]
 }
+
+function displayWork() {
+
+for (job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+  $(".work-entry:last").append(formattedEmployerTitle);
+  var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+  $(".work-entry:last").append(formattedDates);
+  $(".work-entry:last").append(formattedDescription);
+}
+}
+displayWork();
+
 
 var projects = {
   "projects": [
