@@ -100,7 +100,6 @@ for (job in work.jobs) {
 }
 displayWork();
 
-
 var projects = {
   "projects": [
   {
@@ -156,3 +155,10 @@ var education = {
   }
   ]
 }
+
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x,y);
+});
